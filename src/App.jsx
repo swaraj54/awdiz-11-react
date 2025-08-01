@@ -7,6 +7,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import UseState from "./pages/30-07/UseState";
 import UseEffect from "./pages/30-07/UseEffect";
+import UseParams from "./pages/01-08/UseParams";
+import Product from "./pages/01-08/Product";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/use-state" element={<UseState />} />
         <Route path="/use-effect" element={<UseEffect />} />
+        <Route path="/use-params" element={<UseParams />} />
+        <Route path="/product/:productId" element={<Product />} />
       </Routes>
     </div>
   );

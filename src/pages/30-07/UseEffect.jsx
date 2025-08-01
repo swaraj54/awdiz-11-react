@@ -15,7 +15,11 @@ const UseEffect = () => {
   // }, [counter]);
   useEffect(() => {
     console.log("Inside useEffect");
-  }, [counter, counter2]);
+  },[counter, counter2])
+
+  // window.onload = function(){
+  //   api call 
+  // }
 
   return (
     <div>
