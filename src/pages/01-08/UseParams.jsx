@@ -40,9 +40,10 @@ const UseParams = () => {
         "https://levi.in/cdn/shop/files/A79730158_02_Front.jpg?v=1751045764",
     },
   ]);
+  const parentStlying = { display: "flex", justifyContent: "space-around" };
   console.log(tshirt, "tshirt");
   return (
-    <div style={{ display: "flex", justifyContent: "space-around" }}>
+    <div style={parentStlying}>
       {tshirt.map((product) => (
         <div
           key={product.id}
