@@ -13,6 +13,7 @@ import { useState } from "react";
 import StyledComponent from "./pages/02-08/StyledComponent";
 import CreateFruit from "./pages/02-08/CreateFruit";
 import Greeting from "./pages/02-08/Greeting";
+import DynamicStyles from "./pages/03-08/DynamicStyles";
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Dhoni"]);
@@ -37,9 +38,25 @@ function App() {
           path="/greeting"
           element={<Greeting name="Awdiz" isLoggedIn={false} />}
         />
+        <Route path="/dynamic-styles" element={<DynamicStyles />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+useState 
+useNavigate 
+useEffect 
+useParams 
+
+
+fakestoreapi
+
+useMemo 
+useCallback 
+useRef
+useReducer 
+useContext 
+redux 

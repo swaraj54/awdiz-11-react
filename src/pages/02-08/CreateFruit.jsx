@@ -27,6 +27,10 @@ const CreateFruit = () => {
         </div>
       ))}
       <input value={newFruit} onChange={handleInputChange} />
+      {/* <input type="radio" value="honda" />
+      <select>
+        <option value="honda">Honda</option>
+      </select> */}
       <br />
       <button onClick={handleSubmit}>Add {newFruit}</button>
     </div>

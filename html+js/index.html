@@ -8,14 +8,19 @@
   <body>
     <h1>HTML + JS</h1>
     <div id="text"></div>
-    <button onclick="greeting()">Click to see greeting.</button>
+    <!-- <button onclick="greeting()">Click to see greeting.</button> -->
     <script>
       //   greeting();
-      function greeting() {
-        alert("Hello");
-        console.log(document.getElementById("text"), "accessing id.");
-        document.getElementById("text").innerHTML = "Hello World!";
-      }
+      // function greeting() {
+      //   alert("Hello");
+      //   console.log(document.getElementById("text"), "accessing id.");
+      //   document.getElementById("text").innerHTML = "Hello World!";
+      // }
+      const myObject = { name : "", email : "", password : "", confirmPassword : "" }
+      if(myObject['name']){
+        myObject['name'] = "John Doe";
+      } 
+
     </script>
   </body>
 </html>
