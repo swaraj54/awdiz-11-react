@@ -14,6 +14,8 @@ import StyledComponent from "./pages/02-08/StyledComponent";
 import CreateFruit from "./pages/02-08/CreateFruit";
 import Greeting from "./pages/02-08/Greeting";
 import DynamicStyles from "./pages/03-08/DynamicStyles";
+import Products from "./pages/08-08/Products";
+import SingleProduct from "./pages/08-08/SingleProduct";
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Dhoni"]);
@@ -39,6 +41,9 @@ function App() {
           element={<Greeting name="Awdiz" isLoggedIn={false} />}
         />
         <Route path="/dynamic-styles" element={<DynamicStyles />} />
+
+        <Route path='/products' element={<Products />} />
+        <Route path='/single-product/:productId' element={<SingleProduct />} />
       </Routes>
     </div>
   );
@@ -46,17 +51,24 @@ function App() {
 
 export default App;
 
-useState 
-useNavigate 
-useEffect 
-useParams 
+// Completed 
+// useState 
+// useNavigate 
+// useEffect 
+// useParams 
+// fakestoreapi
 
 
-fakestoreapi
 
-useMemo 
-useCallback 
-useRef
-useReducer 
-useContext 
-redux 
+// Pending 
+
+// useMemo 
+// useCallback 
+// useRef - uncontrolled componented - not using state  
+
+
+// useReducer 
+// useContext 
+
+
+// redux 
