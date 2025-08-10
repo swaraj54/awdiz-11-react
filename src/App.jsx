@@ -16,6 +16,8 @@ import Greeting from "./pages/02-08/Greeting";
 import DynamicStyles from "./pages/03-08/DynamicStyles";
 import Products from "./pages/08-08/Products";
 import SingleProduct from "./pages/08-08/SingleProduct";
+import UseMemo from "./pages/10-08/UseMemo";
+import UseCallback from "./pages/10-08/UseCallback";
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Dhoni"]);
@@ -44,6 +46,8 @@ function App() {
 
         <Route path='/products' element={<Products />} />
         <Route path='/single-product/:productId' element={<SingleProduct />} />
+        <Route path='/use-memo' element={<UseMemo />} />
+        <Route path='/use-callback' element={<UseCallback />} />
       </Routes>
     </div>
   );
@@ -63,6 +67,7 @@ export default App;
 // Pending 
 
 // useMemo 
+// memo()
 // useCallback 
 // useRef - uncontrolled componented - not using state  
 
