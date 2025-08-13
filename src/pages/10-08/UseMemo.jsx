@@ -5,7 +5,7 @@ const UseMemo = () => {
   const [counter2, setCounter2] = useState(2);
   console.log("Rerendering UseMemo Component");
     const result = heavyCalculation(counter); // click on coutner 2 to check delay
-//   const result = useMemo(() => heavyCalculation(counter), [counter]);
+  // const result = useMemo(() => heavyCalculation(counter), [counter]);
 
   return (
     <div>
