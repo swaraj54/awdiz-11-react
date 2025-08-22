@@ -21,6 +21,7 @@ import UseCallback from "./pages/10-08/UseCallback";
 import UseRef from "./pages/13-08/UseRef";
 import MultiStepperForm from "./pages/17-08/MultiStepperForm";
 import UseReducer from "./pages/20-08/UseReducer";
+import ContextCounter from "./pages/22-08/ContextCounter";
 
 function App() {
   const [users, setUsers] = useState(["Virat", "Rohit", "Dhoni"]);
@@ -54,6 +55,7 @@ function App() {
         <Route path='/use-ref' element={<UseRef />} />
         <Route path='/multi-stepper-form' element={<MultiStepperForm />} />
         <Route path='/use-reducer' element={<UseReducer />} />
+        <Route path="/context-counter" element={<ContextCounter />} />
       </Routes>
     </div>
   );
@@ -71,14 +73,12 @@ export default App;
 // memo()
 // useCallback
 // useRef - uncontrolled component - not using state  
+// useReducer 
+
 
 // Pending 
  
-
-
-// useReducer 
 // useContext 
-c
 
 // redux 
 
