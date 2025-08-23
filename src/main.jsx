@@ -5,6 +5,8 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import CounterContextComponent from "./context/CounterContext.jsx";
+import { Provider } from "react-redux";
+import { store } from "./redux/Store.JS";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -37,7 +39,9 @@ createRoot(document.getElementById("root")).render(
         }}
       />
       <CounterContextComponent>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </CounterContextComponent>
     </BrowserRouter>
   </StrictMode>

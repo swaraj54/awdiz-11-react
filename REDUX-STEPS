@@ -1,0 +1,16 @@
+Step 1 : install redux toolkit and react-redux packages
+npm install @reduxjs/toolkit  - provide createSlice and configurStore
+npm install react-redux - provide Provider component and Hooks to access and udpate state
+
+Step 2 : Create folder struture 
+index.js
+store.js 
+component - counter redux
+
+Step 3 : create slice in store.js file and use configureStore to create store and export it
+
+Step 4 : in index.js use Provider component to provide store to the app
+
+
+Step 5 :  in any component, use useSelector to access state and useDispatch to update state
+AND also use actions for dispatching actions, and dont forget to call it.
