@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 // const Register = () => {
@@ -27,17 +28,17 @@ import React, { useState } from "react";
 
 const Register = () => {
   const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: "user 2",
+    email: "user2@gmail.com",
+    password: "pass@123",
+    confirmPassword: "pass@123",
   });
 
   const handleChange = (event) => {
     console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       if (
@@ -47,13 +48,22 @@ const Register = () => {
         userData.confirmPassword
       ) {
         // api call
-        alert("Submitted Successfully!");
-        setUserData({
-          name: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/auth/register",
+          userData
+        );
+        
+        if (response.data.success) {
+          alert(response.data.message);
+          setUserData({
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          });
+        } else {
+          alert(response.data.message);
+        }
       } else {
         alert("Please fill all fields");
       }
@@ -95,7 +105,7 @@ const Register = () => {
           value={userData.password}
           onChange={handleChange}
         />
-        <button >Show</button>
+        <button>Show</button>
         <br />
         <label>Confirm Password</label>
         <br />
@@ -105,7 +115,7 @@ const Register = () => {
           value={userData.confirmPassword}
           onChange={handleChange}
         />
-        <button >Show</button>
+        <button>Show</button>
         <br />
         <input type="submit" />
       </form>
