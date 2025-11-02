@@ -1,5 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 // const Register = () => {
 //   const [name , setName] = React.useState("");
@@ -27,6 +29,8 @@ import React, { useState } from "react";
 // }
 
 const Register = () => {
+  const user = useSelector((state) => state.counter.user);
+  const router = useNavigate();
   const [userData, setUserData] = useState({
     name: "user 2",
     email: "user2@gmail.com",
@@ -52,7 +56,7 @@ const Register = () => {
           "http://localhost:8000/api/v1/auth/register",
           userData
         );
-        
+
         if (response.data.success) {
           alert(response.data.message);
           setUserData({
@@ -71,6 +75,11 @@ const Register = () => {
       alert(error);
     }
   };
+  useEffect(() => {
+    if (user.userId) {
+      router("/");
+    }
+  }, [user]);
   return (
     <div>
       <h1>Sign Up</h1>

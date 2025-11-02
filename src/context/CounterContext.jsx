@@ -17,6 +17,7 @@ const CounterContextComponent = ({ children }) => {
   }
   const initialState = { count: 1 };
   const [state, dispatch] = useReducer(reducer, initialState);
+  
   return (
     <CounterContext.Provider value={{ state, dispatch }}>
       {children}

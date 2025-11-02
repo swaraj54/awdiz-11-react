@@ -1,9 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { login } from "../redux/Store.js";
 import { useDispatch, useSelector } from "react-redux";
+import api from "../services/axiosConfig.js";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const router = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.counter.user);
   console.log(user, "user");
@@ -22,10 +25,7 @@ const Login = () => {
     try {
       if (userData.email && userData.password) {
         // api call
-        const response = await axios.post(
-          "http://localhost:8000/api/v1/auth/login",
-          userData
-        );
+        const response = await api.post("/auth/login", userData);
 
         if (response.data.success) {
           dispatch(login(response.data.user));
@@ -45,6 +45,12 @@ const Login = () => {
       alert(error);
     }
   };
+  useEffect(()=>{
+    if(user.userId){
+      router('/')
+      
+    }
+  }, [user])
   return (
     <div>
       <h1>Sign IN / Login - {user?.name}</h1>

@@ -9,7 +9,7 @@ import UseState from "./pages/30-07/UseState";
 import UseEffect from "./pages/30-07/UseEffect";
 import UseParams from "./pages/01-08/UseParams";
 import Product from "./pages/01-08/Product";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StyledComponent from "./pages/02-08/StyledComponent";
 import CreateFruit from "./pages/02-08/CreateFruit";
 import Greeting from "./pages/02-08/Greeting";
@@ -23,9 +23,35 @@ import MultiStepperForm from "./pages/17-08/MultiStepperForm";
 import UseReducer from "./pages/20-08/UseReducer";
 import ContextCounter from "./pages/22-08/ContextCounter";
 import CounterRedux from "./redux/CounterRedux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import api from "./services/axiosConfig";
+import { login } from "./redux/Store";
 
 function App() {
+  const dispatch = useDispatch();
   const [users, setUsers] = useState(["Virat", "Rohit", "Dhoni"]);
+  const user = useSelector((state) => state.counter.user);
+
+  async function getUserData() {
+    try {
+      const response = await api.get("/auth/get-current-user");
+      console.log("user data", response.data);
+      if (response.data.success) {
+        dispatch(login(response.data.user));
+      }
+    } catch (error) {
+      console.log("error fetching user data", error);
+    }
+  }
+  useEffect(() => {
+    if (user) {
+      // user logged in
+    } else {
+      getUserData();
+    }
+  }, [user]);
+
   return (
     <div>
       <Navbar />
@@ -49,13 +75,13 @@ function App() {
         />
         <Route path="/dynamic-styles" element={<DynamicStyles />} />
 
-        <Route path='/products' element={<Products />} />
-        <Route path='/single-product/:productId' element={<SingleProduct />} />
-        <Route path='/use-memo' element={<UseMemo />} />
-        <Route path='/use-callback' element={<UseCallback />} />
-        <Route path='/use-ref' element={<UseRef />} />
-        <Route path='/multi-stepper-form' element={<MultiStepperForm />} />
-        <Route path='/use-reducer' element={<UseReducer />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/single-product/:productId" element={<SingleProduct />} />
+        <Route path="/use-memo" element={<UseMemo />} />
+        <Route path="/use-callback" element={<UseCallback />} />
+        <Route path="/use-ref" element={<UseRef />} />
+        <Route path="/multi-stepper-form" element={<MultiStepperForm />} />
+        <Route path="/use-reducer" element={<UseReducer />} />
         <Route path="/context-counter" element={<ContextCounter />} />
         <Route path="/redux-counter" element={<CounterRedux />} />
       </Routes>
@@ -65,23 +91,20 @@ function App() {
 
 export default App;
 
-// Completed 
-// useState 
-// useNavigate 
-// useEffect 
-// useParams 
+// Completed
+// useState
+// useNavigate
+// useEffect
+// useParams
 // fakestoreapi
-// useMemo 
+// useMemo
 // memo()
 // useCallback
-// useRef - uncontrolled component - not using state  
-// useReducer 
+// useRef - uncontrolled component - not using state
+// useReducer
 
+// Pending
 
-// Pending 
- 
-// useContext 
+// useContext
 
-// redux 
-
-
+// redux
