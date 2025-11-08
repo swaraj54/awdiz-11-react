@@ -36,11 +36,15 @@ const Register = () => {
     email: "user2@gmail.com",
     password: "pass@123",
     confirmPassword: "pass@123",
+    role: "user",
   });
 
   const handleChange = (event) => {
     console.log(event.target.value, event.target.name);
     setUserData({ ...userData, [event.target.name]: event.target.value });
+  };
+  const handleChangeRole = (event) => {
+    setUserData({ ...userData, role: event.target.value });
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -76,7 +80,7 @@ const Register = () => {
     }
   };
   useEffect(() => {
-    if (user.userId) {
+    if (user?.userId) {
       router("/");
     }
   }, [user]);
@@ -88,6 +92,13 @@ const Register = () => {
         {userData.password} Confirm Password : {userData.confirmPassword}
       </h2>
       <form onSubmit={handleSubmit}>
+        <label>Role</label>
+        <select onChange={handleChangeRole}>
+          <option value="user">User</option>
+          <option value="seller">Seller</option>
+          <option value="admin">Admin</option>
+        </select>
+        <br />
         <label>Name</label>
         <br />
         <input

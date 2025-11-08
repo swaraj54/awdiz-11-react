@@ -27,6 +27,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import api from "./services/axiosConfig";
 import { login } from "./redux/Store";
+import AddProduct from "./components/seller/AddProduct";
+import ViewProducts from "./components/seller/ViewProducts";
 
 function App() {
   const dispatch = useDispatch();
@@ -84,6 +86,12 @@ function App() {
         <Route path="/use-reducer" element={<UseReducer />} />
         <Route path="/context-counter" element={<ContextCounter />} />
         <Route path="/redux-counter" element={<CounterRedux />} />
+
+
+        {/* sellers routes  */}
+        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/view-products" element={<ViewProducts />} />
+
       </Routes>
     </div>
   );
