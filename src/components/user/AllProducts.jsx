@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/axiosConfig";
+import { useNavigate } from "react-router-dom";
 
-const ViewProducts = () => {
+const AllProducts = () => {
+    const router= useNavigate()
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   async function getSellerProducts() {
     try {
       setLoading(true);
-      const response = await api.get("/seller/get-products");
+      const response = await api.get("/products/get-products");
       if (response.data.success) {
         setProducts(response.data.products);
       }
@@ -34,7 +36,7 @@ const ViewProducts = () => {
         >
           {products.map((product) => (
             <div
-              onClick={() => router(`/single-product/${product._id}`)}
+              onClick={() => router(`/product-details/${product._id}`)}
               style={{
                 cursor: "pointer",
                 width: "18%",
@@ -58,4 +60,4 @@ const ViewProducts = () => {
   );
 };
 
-export default ViewProducts;
+export default AllProducts;

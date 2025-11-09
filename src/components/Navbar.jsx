@@ -29,14 +29,14 @@ const Navbar = () => {
       {!user && <button onClick={redirecttoLogin}>Login</button>}
       {user?.role == "seller" && (
         <>
-          <button onClick={()=> router("/add-product")}>Add Product</button>
-          <button onClick={()=> router("/view-products")}>View Product</button>
+          <button onClick={() => router("/add-product")}>Add Product</button>
+          <button onClick={() => router("/view-products")}>View Product</button>
           <button>View Orders</button>
         </>
       )}
       {user?.role == "user" && (
         <>
-          <button>Products</button>
+          <button onClick={() => router("/all-product")}>Products</button>
           <button>Cart</button>
           <button>View Orders</button>
         </>

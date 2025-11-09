@@ -29,6 +29,8 @@ import api from "./services/axiosConfig";
 import { login } from "./redux/Store";
 import AddProduct from "./components/seller/AddProduct";
 import ViewProducts from "./components/seller/ViewProducts";
+import AllProducts from "./components/user/AllProducts";
+import ProductDetails from "./components/user/ProductDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -87,11 +89,13 @@ function App() {
         <Route path="/context-counter" element={<ContextCounter />} />
         <Route path="/redux-counter" element={<CounterRedux />} />
 
-
         {/* sellers routes  */}
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/view-products" element={<ViewProducts />} />
 
+        {/* user routes  */}
+        <Route path="/all-product" element={<AllProducts />} />
+        <Route path="/product-details/:productId" element={<ProductDetails />} />
       </Routes>
     </div>
   );
