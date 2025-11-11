@@ -1,16 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/axiosConfig";
 
 const ProductDetails = () => {
+  const router = useNavigate();
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState({});
   const { productId } = useParams();
   console.log(productId, "productId");
   const getSingleProductData = async () => {
     try {
-        console.log("inside function")
+      console.log("inside function");
       setLoading(true);
       const response = await api.get(`/products/product-details/${productId}`);
       if (response.data.success) {
@@ -21,6 +22,22 @@ const ProductDetails = () => {
       console.log(error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const addProductCart = async () => {
+    try {
+      const response = await api.post("/users/add-cart", {
+        productId: productId,
+      });
+      if (response.data.success) {
+        alert(response.data.message);
+        router("/cart");
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
   useEffect(() => {
@@ -47,7 +64,7 @@ const ProductDetails = () => {
             <h1>Title: {productData.price}</h1>
           </div>
           <div>
-            <button>Add to Cart</button>
+            <button onClick={addProductCart}>Add to Cart</button>
           </div>
         </div>
       )}

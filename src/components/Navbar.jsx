@@ -37,7 +37,7 @@ const Navbar = () => {
       {user?.role == "user" && (
         <>
           <button onClick={() => router("/all-product")}>Products</button>
-          <button>Cart</button>
+          <button onClick={() => router("/cart")}>Cart</button>
           <button>View Orders</button>
         </>
       )}

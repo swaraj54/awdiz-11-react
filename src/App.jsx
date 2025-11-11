@@ -31,6 +31,7 @@ import AddProduct from "./components/seller/AddProduct";
 import ViewProducts from "./components/seller/ViewProducts";
 import AllProducts from "./components/user/AllProducts";
 import ProductDetails from "./components/user/ProductDetails";
+import Cart from "./components/user/Cart";
 
 function App() {
   const dispatch = useDispatch();
@@ -95,7 +96,11 @@ function App() {
 
         {/* user routes  */}
         <Route path="/all-product" element={<AllProducts />} />
-        <Route path="/product-details/:productId" element={<ProductDetails />} />
+        <Route
+          path="/product-details/:productId"
+          element={<ProductDetails />}
+        />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );
