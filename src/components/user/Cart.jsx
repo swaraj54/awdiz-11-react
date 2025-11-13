@@ -19,6 +19,20 @@ const Cart = () => {
       setLoading(false);
     }
   }
+  async function placeOrder() {
+    try {
+      setLoading(true);
+      const response = await api.get("/users/place-order");
+      if (response.data.success) {
+        alert(response.data.message)
+        router("/orders")
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
   useEffect(() => {
     getUserCartProducts();
   }, []);
@@ -60,7 +74,9 @@ const Cart = () => {
                 </div>
               ))}
             </div>
-            <div style={{ border: "1px solid black", width: "25%" }}></div>
+            <div style={{ border: "1px solid black", width: "25%" }}>
+              <button onClick={placeOrder}>Place Order</button>
+            </div>
           </div>
         </div>
       )}

@@ -38,7 +38,7 @@ const Navbar = () => {
         <>
           <button onClick={() => router("/all-product")}>Products</button>
           <button onClick={() => router("/cart")}>Cart</button>
-          <button>View Orders</button>
+          <button onClick={() => router("/orders")}>Orders</button>
         </>
       )}
       {user && <button onClick={Logout}>Logout</button>}

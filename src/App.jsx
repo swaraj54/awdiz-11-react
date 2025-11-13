@@ -32,6 +32,7 @@ import ViewProducts from "./components/seller/ViewProducts";
 import AllProducts from "./components/user/AllProducts";
 import ProductDetails from "./components/user/ProductDetails";
 import Cart from "./components/user/Cart";
+import Orders from "./components/user/Orders";
 
 function App() {
   const dispatch = useDispatch();
@@ -101,6 +102,7 @@ function App() {
           element={<ProductDetails />}
         />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/orders" element={<Orders />} />
       </Routes>
     </div>
   );
