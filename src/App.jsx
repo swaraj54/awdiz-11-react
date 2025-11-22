@@ -33,6 +33,7 @@ import AllProducts from "./components/user/AllProducts";
 import ProductDetails from "./components/user/ProductDetails";
 import Cart from "./components/user/Cart";
 import Orders from "./components/user/Orders";
+import UploadImage from "./components/user/common/UploadImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -103,6 +104,7 @@ function App() {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/upload-image" element={<UploadImage />} />
       </Routes>
     </div>
   );
